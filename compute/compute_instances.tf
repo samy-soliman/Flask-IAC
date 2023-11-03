@@ -39,7 +39,10 @@ resource "google_compute_instance" "management_vm" {
 
 
   depends_on = [google_container_cluster.gke_primary_cluster]
-  # A startup script is a file that contains commands that run when a virtual machine (VM) instance boots. 
-  metadata_startup_script = "${file("/init.sh")}"
+
+  # A startup script is a file that contains commands that run when
+  # a virtual machine (VM) instance boots. 
+  
+  metadata_startup_script = "${file("init.sh")}"
 
 }
