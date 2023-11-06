@@ -9,16 +9,6 @@ steps:
   - |
       terraform init
 
-# [START tf-plan]
-- id: 'tf plan'
-  name: 'hashicorp/terraform:latest'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - |  
-      terraform plan -var-file=dev.tfvars
-# [END tf-plan]
-
 # [START tf-apply]
 - id: 'tf apply'
   name: 'hashicorp/terraform:latest'
@@ -26,7 +16,7 @@ steps:
   args: 
   - '-c'
   - |       
-      terraform apply -auto-approve -var-file=dev.tfvars
+      terraform destroy -auto-approve -var-file=dev.tfvars
 # [END tf-apply]
 options:
   logging: CLOUD_LOGGING_ONLY
